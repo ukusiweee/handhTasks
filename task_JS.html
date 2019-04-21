@@ -9,12 +9,9 @@
 <script type="text/javascript">
 function validForm ()
 {
-	valid = true;
-	
-	var name = document.getElementById("mass").value;
-	
-	var reg = /^(\-?[0-9]+([\s]{1,1}\-?[0-9]+)*)$/;
-	
+	valid = true;	
+	var name = document.getElementById("mass").value;	
+	var reg = /^(\-?[0-9]+([\s]{1,1}\-?[0-9]+)*)$/;	
 	var myarr = reg.test(name);
 
         if ( name == "" )
