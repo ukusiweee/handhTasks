@@ -1,0 +1,72 @@
+<html>
+<body>
+
+<form name = "head" onsubmit = "return validForm ()">
+Введите массив (разделителем служит пробел): <input type = "text" id = "mass"/>
+<p><input type = "submit">
+</form>
+
+<script type="text/javascript">
+function validForm ()
+{
+	valid = true;
+	
+	var name = document.getElementById("mass").value;
+	
+	var reg = /^(\-?[0-9]+([\s]{1,1}\-?[0-9]+)*)$/;
+	
+	var myarr = reg.test(name);
+
+        if ( name == "" )
+        {
+            alert ( "Поле не должно быть пустым" );
+            valid = false;
+        }
+			else if (myarr == false)
+			{
+				alert("Введите целые положительные или отрицательные числа через пробел. Пример ввода: 345 -123 567");
+				valid = false;
+			}
+				else
+				{
+					arrayNew;
+				}
+		
+        return valid;
+}
+
+function maxIndex(arr)
+{
+	var max = arr[0];	
+	var index = 0;
+	
+	for (var i = 0; i <= arr.length; i++)
+	{
+		if (arr[i] > max)
+		{
+			max = arr[i];
+			index = i;
+		}
+	}
+	
+	return index;
+}
+
+
+function arrayNew()
+{
+	var arr = document.getElementById("mass").value.split(' ');	
+	var st = new Array();
+	
+	for (var i = 0; i <= arr.length-1; i++)
+	{
+		st[i] = parseInt(arr[i]);
+	}
+	
+	document.write("Массив: ",arr);
+	document.write("<p>Индекс максимального числа в массиве: ",maxIndex(arr));
+}
+</script>
+
+</body>
+</html>
